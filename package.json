@@ -10,6 +10,7 @@
     "@types/node": "^16.11.39",
     "@types/react": "^18.0.12",
     "@types/react-dom": "^18.0.5",
+    "axios": "^0.27.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1",
@@ -21,8 +22,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "aws s3 sync ./build s3://severless-react-test --profile=react-test",
-    "invalidate": "aws cloudfront create-invalidation --profile=react-test --distribution-id E2YGM0CU4YNZO4 --paths / /index.html /error.html /manifest.json /favicon.ico"
+    "deploy": "yarn build && aws s3 sync ./build s3://stores-monolith/react --profile=react-test",
+    "invalidate": "aws cloudfront create-invalidation --profile=react-test --distribution-id=E2IGY2O4VPW4V9 --paths / /index.html /error.html /manifest.json /favicon.ico"
   },
   "eslintConfig": {
     "extends": [
